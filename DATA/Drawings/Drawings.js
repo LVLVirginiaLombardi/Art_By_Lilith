@@ -1,3 +1,9 @@
+import BadGirl from '../../assets/Drawings/BadGirl.png';
+import DiabloGirl from '../../assets/Drawings/DiabloGirl.jpg';
+import FireGirl from '../../assets/Drawings/FireGirl.jpg';
+import ForestDrawing from '../../assets/Drawings/Forest.jpeg';
+import FuturisticGirl from '../../assets/Drawings/FuturisticGirl.png';
+
 export const DRAWINGS = [
     {
         id: 1,
@@ -5,7 +11,7 @@ export const DRAWINGS = [
         name: 'Bad Girl',
         description: 'Digital Drawing',
         format: '.png',
-        image: '../../assets/Drawings/BadGirl.png',
+        image: BadGirl,
         price: 1600,
     },
     {
@@ -14,7 +20,7 @@ export const DRAWINGS = [
         name: 'Diablo Girl',
         description: 'Tempera Drawing',
         format: '.jpg',
-        image: '../../assets/Drawings/DiabloGirl.JPG',
+        image: DiabloGirl,
         price: 1400,
     },
     {
@@ -23,7 +29,7 @@ export const DRAWINGS = [
         name:'Fire Girl',
         description: 'Watercolor Drawing',
         format:'.jpg',
-        image: '../../assets/Drawings/FireGirl.JPG',
+        image: FireGirl,
         price: 1000,
     },
     {
@@ -32,7 +38,7 @@ export const DRAWINGS = [
         name:'Forest Drawing',
         description:'Watercolor Drawing',
         format:'.jpeg',
-        image: '../../assets/Drawings/Forest.JPEG',
+        image: ForestDrawing,
         price: 800,
     },
     {
@@ -41,7 +47,7 @@ export const DRAWINGS = [
         name:'Futuristic Girl',
         description:'Combined styles',
         format:'.png',
-        image: '../../assets/Drawings/FuturisticGirl.png',
+        image: FuturisticGirl,
         price: 2000,
-    }
+    },
 ]

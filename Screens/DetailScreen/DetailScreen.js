@@ -1,4 +1,4 @@
-import { FlatList, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet } from 'react-native';
 
 import { DRAWINGS } from '../../DATA/Drawings/Drawings';
 import DrawingItem from '../../components/DrawingItem/DrawingItem';
@@ -9,7 +9,6 @@ const backgroundimage = require("../../assets/background.png");
 export const DetailScreen = ({navigation, route}) => {
 
     const Drawings = DRAWINGS.filter(drawing => drawing.category === route.params.categoryID)
-    console.log(Drawings)
     const handleSelected = (item) => {
         navigation.navigate('Shop', {
             drawing: item

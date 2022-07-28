@@ -20,17 +20,20 @@ const DrawingItem = ({ item, onSelected }) => {
 
 const styles = StyleSheet.create({
     drawingItem: {
+        justifyContent: 'center',
+        alignItems: 'center',
         padding: 20,
-        margin: 10,
-        borderRadius: 3,
-        backgroundColor: '#ccc',
+        margin: 30,
+        borderRadius: 6,
+        backgroundColor: '#F2D1C9',
     },
     title: {
         fontFamily: 'RobotoMedium',
-        fontSize: 20,
+        fontSize: 25,
     },
     details: {
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: 'RobotoRegular',
     }
 })
 

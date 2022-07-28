@@ -1,39 +1,33 @@
-import { Button, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
-import { DRAWINGS } from '../../DATA/Drawings/Drawings';
-import { FlatList } from 'react-native-web';
 import React from 'react';
 
 const backgroundimage = require("../../assets/background.png");
 
 export const ShopScreen = ({ route }) => {
 
-    const { drawing } = route.params
+    const { drawing } = route.params;
     
     return (
         <ImageBackground source={backgroundimage} style={styles.backgroundimage}>
-                <FlatList
-                    data={drawing}
-                    keyExtractor={(item => item.id)}
-                    renderItem={({item}) => (
-                        <View style={styles.screen}>
-                            <Text style={styles.title}>{item.name}</Text>
-                            <Image style={styles.image} source={item.image}/>
-                            <Text>{item.description}</Text>
-                            <Text>{item.price}</Text>
-                            <Text>{item.format}</Text>
-                        </View>
-                    )}
-                />
+            <View style={styles.screen}>
+                <Text style={styles.title}>{drawing.name}</Text>
+                <Image style={styles.image} source={drawing.image}/>
+                <View style={styles.info}>
+                    <Text>{drawing.description}</Text>
+                    <Text>{drawing.price}</Text>
+                    <Text>{drawing.format}</Text>
+                </View>
+            </View>
         </ImageBackground>
-    )
+    );
 }
-
-/*<Button title='Want to Shop?' onPress={() => {navigation.navigate('Detail', { title: 'Parametros'})}}/>*/
 
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         margin: 15,
         height: 150,
         borderRadius: 6,
@@ -51,14 +45,16 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        borderRadius: 6,
+        width: 200,
+        height: 100,
+        borderRadius: 6, 
+    },
+    info: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 8,
-        shadowColor: 'black',
-        shadowOpacity: 0.26,
-        shadowOffset: {width: 0, height: 2},
-        shadowRadius: 6,
-        elevation: 3,
+        backgroundColor: '#8332AC',
+        height: 80,
+        width: 80,
+        margin: 10,
     },
 }) 
