@@ -1,18 +1,28 @@
-import { ImageBackground, StyleSheet, View } from 'react-native';
-import { useEffect, useState } from 'react'
+import 'react-native-gesture-handler';
 
-import AddItem from './components/AddItem'
-import CustomModal from './components/Modal'
-import List from './components/List'
+import { useEffect, useState } from 'react';
 
-const backgroundimage = require("./assets/background.png");
+import AppLoading from 'expo-app-loading';
+import ShopNavigator from './Navigation/ShopNavigator/ShopNavigator';
+import { useFonts } from 'expo-font';
 
 export default function App() {
-    
-  const [textItem, setTextItem] = useState('');
+  
+  const [loaded] = useFonts({
+    RobotoThin: require('./assets/Fonts/Roboto-Thin.ttf'),
+    RobotoLight: require('./assets/Fonts/Roboto-Light.ttf'),
+    RobotoRegular: require('./assets/Fonts/Roboto-Regular.ttf'),
+    RobotoMedium: require('./assets/Fonts/Roboto-Medium.ttf'),
+    RobotoBold: require('./assets/Fonts/Roboto-Bold.ttf'),
+    RobotoBlack: require('./assets/Fonts/Roboto-Black.ttf'),
+  });
+  
+  /*const [textItem, setTextItem] = useState('');
   const [itemList, setItemList] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [itemSelected, setItemSelected] = useState({});
+
+  if(!loaded) return <AppLoading/>
 
   const onHandlerChangeItem = (text) => setTextItem(text)
   const onHandlerAddItem = () => {
@@ -36,10 +46,11 @@ export default function App() {
     itemList[itemCompleted].completed = true
     setItemList([...itemList])
     setModalVisible(!modalVisible)
-  }
+  }*/
     
   return (
-    <ImageBackground source={backgroundimage} style={styles.backgroundimage}>
+      <ShopNavigator/>
+    /*<ImageBackground source={backgroundimage} style={styles.backgroundimage}>
       <View style={styles.screen}>
         <CustomModal 
           modalVisible={modalVisible}
@@ -57,23 +68,6 @@ export default function App() {
           onHandlerModal={onHandlerModal}
         />
       </View>
-    </ImageBackground>
+    </ImageBackground>*/
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 30,
-    backgroundColor: '#AD50A4',
-    opacity: 0.5,
-    
-  },
-  backgroundimage: {
-    resizeMode: "cover",
-    width: '100%',
-    height: '100%',
-  },
-});

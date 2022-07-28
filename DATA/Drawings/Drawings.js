@@ -1,0 +1,47 @@
+export const DRAWINGS = [
+    {
+        id: 1,
+        category: 1,
+        name: 'Bad Girl',
+        description: 'Digital Drawing',
+        format: '.png',
+        image: '../../assets/Drawings/BadGirl.png',
+        price: 1600,
+    },
+    {
+        id: 2,
+        category: 2,
+        name: 'Diablo Girl',
+        description: 'Tempera Drawing',
+        format: '.jpg',
+        image: '../../assets/Drawings/DiabloGirl.JPG',
+        price: 1400,
+    },
+    {
+        id:3,
+        category: 3,
+        name:'Fire Girl',
+        description: 'Watercolor Drawing',
+        format:'.jpg',
+        image: '../../assets/Drawings/FireGirl.JPG',
+        price: 1000,
+    },
+    {
+        id: 4,
+        category: 3,
+        name:'Forest Drawing',
+        description:'Watercolor Drawing',
+        format:'.jpeg',
+        image: '../../assets/Drawings/Forest.JPEG',
+        price: 800,
+    },
+    {
+        id: 5,
+        category: 4,
+        name:'Futuristic Girl',
+        description:'Combined styles',
+        format:'.png',
+        image: '../../assets/Drawings/FuturisticGirl.png',
+        price: 2000,
+    }
+]
