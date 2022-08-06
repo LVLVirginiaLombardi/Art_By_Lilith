@@ -1,8 +1,8 @@
-import React from 'react';
+import { COLORS } from '../../Constants/Colors';
+import CartScreen from '../../Screens/CartScreen/CartScreen';
 import { Platform } from 'react-native';
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import CartScreen from '../screens/CartScreen';
-import { COLORS } from '../constants/colors'
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +14,7 @@ const CartNavigator = () => {
                 headerStyle: {
                     backgroundColor: Platform.OS === 'android' ? COLORS.primary : '',
                 },
-                headerTintColor: Platform.OS === 'android' ? 'white' : COLORS.primary,
+                headerTintColor: Platform.OS === 'android' ? '#462749' : COLORS.primary,
                 headerTitleStyle: {
                     fontWeight: 'bold',
                 },
@@ -23,7 +23,7 @@ const CartNavigator = () => {
             <Stack.Screen 
                 name="Cart"
                 component={CartScreen}
-                options={{ title: 'Carrito' }}
+                options={{ title: 'Shop Cart' }}
             />
         </Stack.Navigator>
     )   

@@ -1,10 +1,11 @@
-import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Ionicons from '@expo/vector-icons/Ionicons'
-import ShopNavigator from './ShopNavigator'
-import CartNavigator from './CartNavigator'
-import OrdersNavigator from './OrdersNavigator'
+import { StyleSheet, Text, View } from 'react-native';
+
+import CartNavigator from '../CartNavigator/CartNavigator';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import OrdersNavigator from '../OrdersNavigator/OrdersNavigator';
+import React from 'react';
+import ShopNavigator from '../ShopNavigator/ShopNavigator';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const BottomsTabs = createBottomTabNavigator()
 
@@ -21,8 +22,8 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={styles.item}>
-                        <Ionicons name='md-home' size={24} color={focused ? 'blue' : 'black'} />
-                        <Text style={{ color: focused ? 'blue' : 'black'}}>Tienda</Text>
+                        <Ionicons name='md-home' size={24} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Shop</Text>
                     </View>
                 )
             }}
@@ -33,8 +34,8 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
-                        <Ionicons name='md-cart' size={24} color={focused ? 'blue' : 'black'} />
-                        <Text style={{ color: focused ? 'blue' : 'black'}}>Carrito</Text>
+                        <Ionicons name='md-cart' size={24} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Cart</Text>
                     </View>
                 )
             }}
@@ -45,8 +46,8 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
-                        <Ionicons name='cash-outline' size={24} color={focused ? 'blue' : 'black'} />
-                        <Text style={{ color: focused ? 'blue' : 'black'}}>Orders</Text>
+                        <Ionicons name='cash-outline' size={24} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Orders</Text>
                     </View>
                 )
             }}
@@ -63,11 +64,11 @@ const styles = StyleSheet.create({
         shadowRadius: 0.25,
         elevation: 5,
         position: 'absolute',
-        bottom: 25,
+        bottom: 10,
         left: 20,
         right: 20,
         borderRadius: 15,
-        height: 90,
+        height: 60,
     },
     item: {
         flex: 1,

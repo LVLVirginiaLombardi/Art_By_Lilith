@@ -1,5 +1,5 @@
-import FuturisticGirl from '../../assets/Drawings/FuturisticGirl.png';
 import BadGirl from '../../assets/Drawings/BadGirl.png';
+import FuturisticGirl from '../../assets/Drawings/FuturisticGirl.png';
 
 export const CART = [
     {
