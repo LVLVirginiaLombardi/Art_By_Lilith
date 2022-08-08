@@ -1,14 +1,19 @@
 import { FlatList, ImageBackground, StyleSheet } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { CATEGORIES } from '../../DATA/Categories/Categories';
 import GridItem from '../../components/GirdItem/GridItem';
 import React from 'react';
+import { selectCategory } from '../../store/Actions/CategoryAction/category.action';
 
 const backgroundimage = require("../../assets/background.png");
 
 export const HomeScreen = ({ navigation }) => {
 
+    const categories = useSelector(store => store.categories.categories)
+    const dispatch = useDispatch()
+
     const handleSelectedCategory = (item) => {
+        dispatch(selectCategory(item.id))
         navigation.navigate('Detail', {
             categoryID: item.id,
             name: item.title
@@ -22,7 +27,7 @@ export const HomeScreen = ({ navigation }) => {
     return (
         <ImageBackground source={backgroundimage} style={styles.backgroundimage}>
             <FlatList
-                data={CATEGORIES}
+                data={categories}
                 renderItem={renderGridItem}
                 numColumns={2}
                 keyExtractor={item => item.id}

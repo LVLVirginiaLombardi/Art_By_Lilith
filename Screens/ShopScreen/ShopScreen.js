@@ -1,12 +1,13 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const backgroundimage = require("../../assets/background.png");
 
-export const ShopScreen = ({ route }) => {
+export const ShopScreen = () => {
 
-    const { drawing } = route.params;
+    const drawing = useSelector(store => store.drawings.selected)
     
     return (
         <ImageBackground source={backgroundimage} style={styles.backgroundimage}>
