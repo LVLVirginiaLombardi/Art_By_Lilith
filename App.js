@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import AppLoading from 'expo-app-loading';
-import ShopNavigator from './Navigation/ShopNavigator/ShopNavigator';
+import MainNavigator from './Navigation/MainNavigator/MainNavigator';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -18,6 +18,6 @@ export default function App() {
   if(!loaded) return <AppLoading />
   
   return (
-      <ShopNavigator/>
+      <MainNavigator/>
   );
 }
