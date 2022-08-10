@@ -1,35 +1,26 @@
-import { Alert, FlatList, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { CART } from '../../DATA/Cart/Cart';
 import {CartItem} from '../../components/CartItem/CartItem';
 import React from 'react';
-
-const backgroundimage = require("../../assets/background.png");
+import { removeItem } from '../../store/Actions/CartAction/cart.action';
 
 const CartScreen = () => {
 
-  const items = CART
-  const total = 3600;
+  const dispatch = useDispatch();
+  const { items, total } = useSelector(store => store.cart);
 
   const handleConfirmCart = () => {
     console.log('Confirm Product');
   } 
 
-  const handlerDeleteCart = () => {
-    Alert.alert(
-			'Are you sure you want to delete this item from your cart?',
-			'',
-			[
-				{text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-				{text: 'Delete', onPress: () => console.log('Delete Pressed'), style: 'destructive'},
-			],
-			{ cancelable: false }
-		);
-  }
+  const handlerDeleteItem = (id) => {
+    dispatch(removeItem(id))
+  };
 
   const renderItems = ({item}) => {
     return (
-      <CartItem item={item} onDelete={handlerDeleteCart} />
+      <CartItem item={item} onDelete={handlerDeleteItem} />
     )
   }
 
