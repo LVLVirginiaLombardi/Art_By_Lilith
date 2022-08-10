@@ -1,17 +1,26 @@
 import { FlatList, ImageBackground, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { filteredDrawing, selectDrawing } from '../../store/Actions/DrawingAction/drawing.action';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { DRAWINGS } from '../../DATA/Drawings/Drawings';
 import DrawingItem from '../../components/DrawingItem/DrawingItem';
-import React from 'react';
 
 const backgroundimage = require("../../assets/background.png");
 
 export const DetailScreen = ({navigation, route}) => {
 
-    const Drawings = DRAWINGS.filter(drawing => drawing.category === route.params.categoryID)
+    const dispatch = useDispatch()
+    const categoryDrawings = useSelector(store => store.drawings.filteredDrawing)
+    const category = useSelector(store => store.categories.selected)
+
+    useEffect(() => {
+        dispatch(filteredDrawing(category.id))
+    },[])
+
     const handleSelected = (item) => {
+        dispatch(selectDrawing(item.id))
         navigation.navigate('Shop', {
-            drawing: item
+            drawing: item.name
         })
     }
 
@@ -22,7 +31,7 @@ export const DetailScreen = ({navigation, route}) => {
     return (
         <ImageBackground source={backgroundimage} style={styles.backgroundimage}>
             <FlatList
-                data={Drawings}
+                data={categoryDrawings}
                 renderItem={renderItemDrawing}
                 keyExtractor={item => item.id}
             />
