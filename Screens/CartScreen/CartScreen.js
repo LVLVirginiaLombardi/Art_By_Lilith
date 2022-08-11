@@ -1,18 +1,19 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { confirmCart, removeItem } from '../../store/Actions/CartAction/cart.action';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {CartItem} from '../../components/CartItem/CartItem';
+import { CartItem } from '../../components/CartItem/CartItem';
 import React from 'react';
-import { removeItem } from '../../store/Actions/CartAction/cart.action';
 
 const CartScreen = () => {
 
   const dispatch = useDispatch();
+  
   const { items, total } = useSelector(store => store.cart);
 
   const handleConfirmCart = () => {
-    console.log('Confirm Product');
-  } 
+    dispatch(confirmCart(items, total))
+  };
 
   const handlerDeleteItem = (id) => {
     dispatch(removeItem(id))
@@ -22,7 +23,7 @@ const CartScreen = () => {
     return (
       <CartItem item={item} onDelete={handlerDeleteItem} />
     )
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -76,8 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'RobotoMedium',
     padding: 8,
-  }
+  },
 })
 
-
-export default CartScreen
+export default CartScreen;

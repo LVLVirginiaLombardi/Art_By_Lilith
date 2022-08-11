@@ -1,14 +1,20 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Button, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { addItem } from '../../store/Actions/CartAction/cart.action';
 
 const backgroundimage = require("../../assets/background.png");
 
-export const ShopScreen = () => {
+export const ShopScreen = ({ navigation }) => {
+
+    const dispatch = useDispatch();
 
     const drawing = useSelector(store => store.drawings.selected)
     
+    const handlerAddItemCart = () => dispatch(addItem(drawing));
+
     return (
         <ImageBackground source={backgroundimage} style={styles.backgroundimage}>
             <View style={styles.screen}>
@@ -19,6 +25,8 @@ export const ShopScreen = () => {
                     <Text>{drawing.price}</Text>
                     <Text>{drawing.format}</Text>
                 </View>
+                <Button title='Add to Cart' onPress={handlerAddItemCart} />
+                <Ionicons name='cart' size={30} color='#462749' />
             </View>
         </ImageBackground>
     );
@@ -29,10 +37,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 15,
+        marginTop: 15,
+        marginBottom: 30,
         height: 150,
         borderRadius: 6,
-        marginTop: '15%',
     },
     backgroundimage: {
         resizeMode: "cover",
@@ -42,20 +50,21 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontFamily: 'RobotoBold',
-        marginBottom: 10,
+        marginBottom: 15,
     },
     image: {
         flex: 1,
         width: 200,
         height: 100,
-        borderRadius: 6, 
+        borderRadius: 10, 
     },
     info: {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#8332AC',
-        height: 80,
-        width: 80,
-        margin: 10,
+        height: 100,
+        width: 100,
+        marginBottom: 40,
+        marginTop: 10,
     },
-}) 
+})

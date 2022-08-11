@@ -1,4 +1,4 @@
-import { Button, StyleSheet, TextInput, View } from 'react-native'
+/*import { Button, StyleSheet, TextInput, View } from 'react-native'
 
 export default function AddItem(props) {
 
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
         width: '20%',
         marginLeft: 20,
     },
-})
+})*/

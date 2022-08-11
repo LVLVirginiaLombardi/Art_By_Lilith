@@ -1,4 +1,4 @@
-import { Button, Modal, StyleSheet, Text, View } from 'react-native'
+/*import { Button, Modal, StyleSheet, Text, View } from 'react-native'
 
 export default function CustomModal(props) {
 
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
     modalItem: {
         fontSize: 30,
     }
-})
+})*/

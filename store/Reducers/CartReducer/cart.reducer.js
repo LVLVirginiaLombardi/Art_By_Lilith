@@ -1,10 +1,8 @@
-import { ADD_ITEM, REMOVE_ITEM } from '../../Actions/CartAction/cart.action';
-
-import { CART } from '../../../DATA/Cart/Cart';
+import { ADD_ITEM, CONFIRM_CART, REMOVE_ITEM } from '../../Actions/CartAction/cart.action';
 
 const INITIAL_STATE = {
-    items: CART,
-    total: 27000,
+    items: [],
+    total: 0,
 };
 
 const sumTotal = (list) => list
@@ -12,7 +10,7 @@ const sumTotal = (list) => list
     .reduce((a, b) => a + b, 0);
 
 const CartReducer = (state = INITIAL_STATE, action) => {
-    switch(type.action) {
+    switch(action.type) {
         
         case ADD_ITEM:
             let updatedCart = [];
@@ -33,13 +31,16 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 total: sumTotal(updatedCart)
             };
 
-            case REMOVE_ITEM:
-                const filteredCart = state.items.filter(item => item.id !== action.itemID);
-                return {
-                    ...state,
-                    items: filteredCart,
-                    total: sumTotal(filteredCart)
-                };
+        case REMOVE_ITEM:
+            const filteredCart = state.items.filter(item => item.id !== action.itemID);
+            return {
+                ...state,
+                items: filteredCart,
+                total: sumTotal(filteredCart)
+            };
+        
+        default:
+            return state
     }
 };
 

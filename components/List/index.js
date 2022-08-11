@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity } from 'react-native'
+/*import { FlatList, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 export default function List(props) {
 
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'white',
     }
-})
+})*/
