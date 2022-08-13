@@ -19,10 +19,10 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 updatedCart = state.items.map(item => {
                     if (item.id === action.item.id) item.quantity++;
                     return item;
-                });
+                })
             } else {
-                const item = { ...action.item, quantity: 1 };
-                updatedCart = [...state.items, item];
+                const item = { ...action.item, quantity: 1 }
+                updatedCart = [...state.items, item]
             }
 
             return {
@@ -38,7 +38,14 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 items: filteredCart,
                 total: sumTotal(filteredCart)
             };
-        
+        case CONFIRM_CART:
+            if(action.confirm) {
+                return {
+                    ...state,
+                    items: [],
+                    total: 0
+                }
+            }
         default:
             return state
     }

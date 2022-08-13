@@ -1,9 +1,9 @@
 import { FlatList, StyleSheet, View } from 'react-native';
 import React, { useEffect } from 'react';
+import { deleteOrder, getOrders } from '../../store/Actions/OrderAction/order.action';
 import { useDispatch, useSelector } from 'react-redux';
 
 import OrderItem from '../../components/OrderItem/OrderItem';
-import { getOrders } from '../../store/Actions/OrderAction/order.action';
 
 const OrderItemScreen = () => {
 
@@ -15,7 +15,7 @@ const OrderItemScreen = () => {
         dispatch(getOrders());
     }, []);
 
-    const onHandlerDeleteItem = () => {}
+    const onHandlerDeleteItem = (id) => dispatch(deleteOrder(id));
     
     const renderCartItem = ({ item }) => (
         <OrderItem item={item} onDelete={onHandlerDeleteItem} />
@@ -28,6 +28,8 @@ const OrderItemScreen = () => {
             renderItem={renderCartItem}
             keyExtractor={(item) => item.id}
             numColumns={1}
+            onRefresh={() => dispatch(getOrders())}
+            refreshing={false}
         />
     </View>
   )

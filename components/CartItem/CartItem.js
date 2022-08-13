@@ -8,12 +8,12 @@ export const CartItem = ({ item, onDelete}) => {
   return (
     <View style={styles.item}>
       <View>
-        <Text style={StyleSheet.header}>{item.name}</Text>
+        <Text style={styles.header}>{item.name}</Text>
       </View>
       <View style={styles.detail}>
         <View>
-            <Text>Cantidad: {item.quantity}</Text>
-            <Text>{item.price}</Text>
+            <Text>Quantity: {item.quantity}</Text>
+            <Text>${item.price}</Text>
         </View>
         <TouchableOpacity onPress={() => onDelete(item.id)}>
             <Ionicons name='trash' color={COLORS.accent} />

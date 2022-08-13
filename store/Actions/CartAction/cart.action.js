@@ -6,12 +6,12 @@ export const CONFIRM_CART = 'CONFIRM_CART';
 
 export const addItem = item => ({
     type: ADD_ITEM,
-    item,
+    item
 });
 
 export const removeItem = itemID => ({
     type: REMOVE_ITEM,
-    itemID,
+    itemID
 });
 
 export const confirmCart = (payload, total) => {
@@ -20,17 +20,16 @@ export const confirmCart = (payload, total) => {
             const response = await fetch(`${URL_API}orders.json`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     date: Date.now(),
                     items: payload,
-                    total,
+                    total
                 }),
             });
 
             const result = await response.json();
-            console.log(result, 'result');
 
             disptach({
                 type: CONFIRM_CART,

@@ -1,6 +1,7 @@
 import { COLORS } from '../../Constants/Colors';
 import { DetailScreen } from '../../Screens/DetailScreen/DetailScreen';
 import { HomeScreen } from '../../Screens/HomeScreen/HomeScreen';
+import { Platform } from 'react-native';
 import React from 'react';
 import { ShopScreen } from '../../Screens/ShopScreen/ShopScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
