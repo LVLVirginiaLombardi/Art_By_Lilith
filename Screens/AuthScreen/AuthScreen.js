@@ -56,6 +56,26 @@ const AuthScreen = () => {
         messageTarget = 'Login';
 
     const handleSignUp = () => {
+        dispatch(signup(email, password));
+        if(email === '' || password === '') {
+            Alert.alert(
+                'Invalid Form',
+                'Entry a valid email or password',
+                [{ text: 'OK' }]
+            )
+        }
+    }
+    const handleLogIn = () => {
+        dispatch(login(email, password));
+        if(email !== '' && password !== '') {
+            Alert.alert(
+                'SignIn Successfully',
+                'Now enjoy the APP',
+                [{ text: 'OK' }]
+            )
+        }
+    }
+    /*const handleSignUp = () => {
         if(formState.formIsValid) {
             dispatch(signup(formState.inputValues.email, formState.inputValues.password));
         } else {
@@ -65,7 +85,7 @@ const AuthScreen = () => {
                 [{ text: 'OK' }]
             )
         }
-    }
+    }*/
     const onInputChangeHandler = useCallback((inputIdentifier, inputValue, inputValidity) => {
         formDispatch({
             type: FORM_INPUT_UPDATE,
@@ -99,12 +119,12 @@ const AuthScreen = () => {
                         onChangeText={(text) => setPassword(text)}
                     />
                     <View style={styles.buttonRegister}>
-                        <Button title='Register' onPress={() => dispatch(signup(email, password))} />
+                        <Button title='Register' onPress={handleSignUp} />
                     </View>
                 </View>
                 <View style={styles.prompt}>
                     <Text style={styles.promptMessage}>{message}</Text> 
-                    <TouchableOpacity onPress={() => dispatch(login(email, password))}>
+                    <TouchableOpacity onPress={handleLogIn}>
                         <Text style={styles.promptButton}>{messageAction}</Text>
                     </TouchableOpacity>
                 </View>
@@ -152,11 +172,14 @@ const styles = StyleSheet.create({
         color: '#333',
         marginTop: 15,
         marginBottom: 10,
+        marginLeft: 30,
+
     },
     promptButton: {
         fontSize: 16,
         fontFamily: 'RobotoMedium',
         color: '#511548',
+        marginLeft: '40%',
     },
     button: {
         backgrounColor: COLORS.primary,
