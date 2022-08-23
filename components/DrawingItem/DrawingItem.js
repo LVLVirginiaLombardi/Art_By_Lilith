@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import React from 'react'
+import React from 'react';
 
 const DrawingItem = ({ item, onSelected }) => {
     return (
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default DrawingItem
+export default DrawingItem;

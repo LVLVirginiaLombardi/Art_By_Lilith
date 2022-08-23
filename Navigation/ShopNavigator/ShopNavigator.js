@@ -19,7 +19,7 @@ const ShopNavigator = () => {
                 fontWeight: 'bold'
             }
         }}>
-            <Stack.Screen name='Home' component={HomeScreen} options={{ title: 'DRAWINGS CATEGORIES' }}/>
+            <Stack.Screen name='Home' component={HomeScreen} options={{ title: 'Drawings Categories' }}/>
             <Stack.Screen name='Detail' component={DetailScreen} options={({route}) => ({ title: route.params.name})}/>
             <Stack.Screen name='Shop' component={ShopScreen} options={({route}) => ({title: route.params.drawing.name})}/>
         </Stack.Navigator>

@@ -24,7 +24,7 @@ export const DRAWINGS = [
         price: 1400,
     },
     {
-        id:3,
+        id: 3,
         category: 3,
         name:'Fire Girl',
         description: 'Watercolor Drawing',
@@ -45,7 +45,7 @@ export const DRAWINGS = [
         id: 5,
         category: 4,
         name:'Futuristic Girl',
-        description:'Combined styles',
+        description:'Combined Categories',
         format:'.png',
         image: FuturisticGirl,
         price: 2000,

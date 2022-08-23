@@ -9,20 +9,20 @@ const backgroundimage = require("../../assets/background.png");
 
 export const HomeScreen = ({ navigation }) => {
 
-    const categories = useSelector(store => store.categories.categories)
-    const dispatch = useDispatch()
+    const categories = useSelector(store => store.categories.categories);
+
+    const dispatch = useDispatch();
 
     const handleSelectedCategory = (item) => {
         dispatch(selectCategory(item.id))
         navigation.navigate('Detail', {
-            categoryID: item.id,
             name: item.title
         });
-    }
+    };
 
     const renderGridItem = ({ item }) => (
         <GridItem item={item} onSelected={handleSelectedCategory} />
-    )
+    );
 
     return (
         <ImageBackground source={backgroundimage} style={styles.backgroundimage}>

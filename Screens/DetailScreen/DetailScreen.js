@@ -9,24 +9,26 @@ const backgroundimage = require("../../assets/background.png");
 
 export const DetailScreen = ({navigation, route}) => {
 
-    const dispatch = useDispatch()
-    const categoryDrawings = useSelector(store => store.drawings.filteredDrawing)
-    const category = useSelector(store => store.categories.selected)
-
+    const dispatch = useDispatch();
+    
+    const categoryDrawings = useSelector(store => store.drawings.filteredDrawing);
+    
+    const category = useSelector(store => store.categories.selected);
+    
     useEffect(() => {
         dispatch(filteredDrawing(category.id))
-    },[])
+    },[]);
 
     const handleSelected = (item) => {
         dispatch(selectDrawing(item.id))
         navigation.navigate('Shop', {
             drawing: item.name
         })
-    }
+    };
 
     const renderItemDrawing = ({ item }) => (
         <DrawingItem item={item} onSelected={handleSelected} />
-    )
+    );
 
     return (
         <ImageBackground source={backgroundimage} style={styles.backgroundimage}>
@@ -45,4 +47,4 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
-}) 
+});

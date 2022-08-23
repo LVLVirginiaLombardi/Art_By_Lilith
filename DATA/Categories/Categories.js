@@ -16,7 +16,7 @@ export const CATEGORIES = [
     },
     {
         id: 4,
-        title: 'Others Categories Of Drawings',
+        title: 'Combined Categories',
         color: '#462749',
     }
 ]

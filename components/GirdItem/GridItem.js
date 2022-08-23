@@ -3,9 +3,9 @@ import {
     Text,
     TouchableOpacity,
     View
-} from 'react-native'
+} from 'react-native';
 
-import React from 'react'
+import React from 'react';
 
 const GridItem = ({ item, onSelected}) => {
     return (
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'RobotoRegular',
         fontSize: 15,
-    }
-})
+    },
+});
 
-export default GridItem
+export default GridItem;
