@@ -1,5 +1,5 @@
 import { Alert, Button, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { login, signup } from '../../store/Actions/AuthAction/AuthAction';
+import { login, signup } from '../../store/Actions/AuthAction/auth.action';
 import { useCallback, useReducer, useState } from 'react';
 
 import { COLORS } from '../../Constants/Colors';

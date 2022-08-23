@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import CartNavigator from '../CartNavigator/CartNavigator';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import OrdersNavigator from '../OrdersNavigator/OrdersNavigator';
+import PlaceNavigator from '../PlaceNavigator/PlaceNavigator';
 import React from 'react';
 import ShopNavigator from '../ShopNavigator/ShopNavigator';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -48,6 +49,18 @@ const TabNavigator = () => {
                     <View style={styles.item}>
                         <Ionicons name='cash-outline' size={20} color={focused ? '#462749' : '#F2D1C9'} />
                         <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Orders</Text>
+                    </View>
+                )
+            }}
+        />
+        <BottomsTabs.Screen
+            name="Location"
+            component={PlaceNavigator}
+            options={{
+                tabBarIcon: ({focused}) => (
+                    <View style={styles.item}>
+                        <Ionicons name='location-outline' size={24} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Location</Text>
                     </View>
                 )
             }}
