@@ -18,9 +18,9 @@ const PlaceNavigator = () => (
             headerStyle: {
                 backgroundColor: Platform.OS === 'android' ? COLORS.DARK_SIENNA : '',
             },
-            headerTintColor: Platform.OS === 'android' ? '#511548' : COLORS.DARK_SIENNA,
+            headerTintColor: Platform.OS === 'android' ? COLORS.primary : COLORS.DARK_SIENNA,
             headerTitleStyle: {
-                fontWeight: 'bold',
+                fontWeight: 'normal',
             }
         }}
     >
@@ -33,7 +33,7 @@ const PlaceNavigator = () => (
                     <TouchableOpacity onPress={() => navigation.navigate('New')}>
                         <Ionicons
                             name='md-add'
-                            color={Platform.OS === 'android' ? '#511548' : COLORS.DARK_SIENNA}
+                            color={Platform.OS === 'android' ? COLORS.primary : COLORS.DARK_SIENNA}
                             size={24}
                         />
                     </TouchableOpacity>

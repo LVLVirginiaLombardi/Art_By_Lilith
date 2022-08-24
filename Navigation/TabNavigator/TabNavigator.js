@@ -59,7 +59,7 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
-                        <Ionicons name='location-outline' size={24} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Ionicons name='location-outline' size={20} color={focused ? '#462749' : '#F2D1C9'} />
                         <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Location</Text>
                     </View>
                 )

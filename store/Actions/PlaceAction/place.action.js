@@ -4,7 +4,7 @@ import * as FileSystem from 'expo-file-system';
 
 export const ADD_PLACE = 'ADD_PLACE';
 
-export const addPlace = (title, image) => {
+export const addPlace = (title, image, location) => {
     return async dispatch => {
 
         /*const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${API_MAPS_KEY}`);
@@ -32,9 +32,9 @@ export const addPlace = (title, image) => {
         dispatch({ type: ADD_PLACE, payload: { 
             title, 
             image: Path, 
-            //address,
-            //lat: location.lat,
-            //lng: location.lng
+            address,
+            lat: location.lat,
+            lng: location.lng
         }})
     }
 }
