@@ -3,10 +3,11 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { COLORS } from '../../Constants/Colors';
 import React from 'react';
 
-const PlaceItem = ({ title, image, address, onSelect}) => {
-    console.log(address, 'soy address')
+const PlaceItem = ({ id, title, image, address, onSelect}) => {
+   
     return (
         <TouchableOpacity 
+            key={id}
             onPress={onSelect}
             style={styles.placeItem}
         >

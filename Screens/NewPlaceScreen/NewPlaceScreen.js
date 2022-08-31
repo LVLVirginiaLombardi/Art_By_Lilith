@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { COLORS } from '../../Constants/Colors';
 import ImageSelector from '../../components/ImageSelector/ImageSelector';
-import LocationSelector from '../../components/LocationSelector/LocationSelector';
+//import LocationSelector from '../../components/LocationSelector/LocationSelector';
 import { addPlace } from '../../store/Actions/PlaceAction/place.action';
 import { useDispatch } from 'react-redux';
 
@@ -11,11 +11,11 @@ const NewPlaceScreen = ({ navigation, route }) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
-    const [location, setLocation] = useState(null);
+    //const [location, setLocation] = useState(null);
     const handleTitleChange = text => setTitle(text)
 
     const handleSave = () => {
-        dispatch(addPlace(title, image, location));
+        dispatch(addPlace(title, image));
         navigation.navigate('Address');
     }
 
@@ -28,7 +28,6 @@ const NewPlaceScreen = ({ navigation, route }) => {
                     onChangeText={handleTitleChange}    
                 />
                 <ImageSelector onImage={image => setImage(image)} />
-                <LocationSelector onLocation={setLocation} mapLocation={route?.params?.mapLocation} />
                 <Button title='Record Address' color={COLORS.MAROON} onPress={handleSave}/>
         </ScrollView>
     )

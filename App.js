@@ -3,8 +3,16 @@ import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
 import MainNavigator from './Navigation/MainNavigator/MainNavigator';
 import { Provider } from 'react-redux';
+import { init } from './db/Index/Index';
 import store from './store/index';
 import { useFonts } from 'expo-font';
+
+init()
+  .then(() => console.log('database initialized'))
+  .catch((err) => {
+    console.log('database fail connect')
+    console.log(err.message)
+  });
 
 export default function App() {
   

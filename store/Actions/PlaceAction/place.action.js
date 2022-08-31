@@ -1,10 +1,13 @@
 import * as FileSystem from 'expo-file-system';
 
+import { fetchAddress, insertAddress } from '../../../db/Index/Index';
+
 //import { API_MAPS_KEY } from '../../constants/DataBase';
 
 export const ADD_PLACE = 'ADD_PLACE';
+export const LOAD_PLACES = 'LOAD_PLACES';
 
-export const addPlace = (title, image, location) => {
+export const addPlace = (title, image, address) => {
     return async dispatch => {
 
         /*const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${API_MAPS_KEY}`);
@@ -25,16 +28,36 @@ export const addPlace = (title, image, location) => {
                 from: image,
                 to: Path
             })
+
+            const result = await insertAddress(
+                title,
+                Path,
+                address
+            )
+
+            dispatch({ type: ADD_PLACE, payload: { 
+                id: result.insertId,
+                title, 
+                image: Path, 
+                address
+            }})
+
         } catch (error) {
             console.log(error.message)
             throw error
         }
-        dispatch({ type: ADD_PLACE, payload: { 
-            title, 
-            image: Path, 
-            address,
-            lat: location.lat,
-            lng: location.lng
-        }})
+    }
+}
+
+export const loadAddress = () => {
+    return async dispatch => {
+        try {
+            const result = await fetchAddress()
+            console.log(result)
+            dispatch({ type: LOAD_PLACES, places: result.rows._array})
+        } catch (error) {
+            console.log(error.message)
+            throw error
+        }
     }
 }
