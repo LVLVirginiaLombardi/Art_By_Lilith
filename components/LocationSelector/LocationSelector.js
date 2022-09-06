@@ -14,18 +14,18 @@ const LocationSelector = ({onLocation, mapLocation}) => {
     const handleGetLocation = async () => {
         const isLocationOk = await verifyPermissions();
         if (!isLocationOk) {
+
             return
         }
 
         const location = await Location.getCurrentPositionAsync({
-            timeout: 5000,
+            timeout: 2000,
         });
-        
+
         setPickedLocation({
             lat: location.coords.latitude,
             lng: location.coords.longitude,
         });
-        
         onLocation({
             lat: location.coords.latitude,
             lng: location.coords.longitude,
@@ -36,11 +36,12 @@ const LocationSelector = ({onLocation, mapLocation}) => {
         const { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== 'granted') {
             Alert.alert(
-                'Insufficient Permissions!',
-                'You need to Grant Location',
+                'Permisos insuficientes',
+                'Necesitas permisos para usar la localización',
                 [{ text: 'OK' }]
             )
             return false;
+
         }
         return true
     }
@@ -50,7 +51,7 @@ const LocationSelector = ({onLocation, mapLocation}) => {
         if (!isLocationOk) {
             return
         }
-        //navigation.navigate('Map')
+        navigation.navigate('Map')
     }
 
     useEffect(() => {
@@ -63,16 +64,16 @@ const LocationSelector = ({onLocation, mapLocation}) => {
     return (
         <View style={styles.container}>
             <MapPreview location={pickedLocation} style={styles.preview}>
-                <Text>Location in process ...</Text>
+                <Text>Location in process...</Text>
             </MapPreview>
             <View style={styles.actions}>
                 <Button 
-                    title='Get Location'
+                    title='Obtener location'
                     color={COLORS.PEACH_PUFF}
                     onPress={handleGetLocation}
                 />
                 <Button
-                    title='Select from Map'
+                    title='Elegir del mapa'
                     color={COLORS.LIGTH_PINK}
                     onPress={handlePickOnMap}
                 />
@@ -83,6 +84,7 @@ const LocationSelector = ({onLocation, mapLocation}) => {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         marginBottom: 10,
     },
     preview: {
@@ -93,16 +95,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: COLORS.BLUSH,
         borderWidth: 1,
-        marginLeft: 15,
+        marginLeft: 20,
     },
     image: {
         width: '100%',
-        height: '100%',
+        height: '100%'
     },
     actions: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-    },
+    }
 })
 
 export default LocationSelector;

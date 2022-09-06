@@ -2,23 +2,22 @@ import * as FileSystem from 'expo-file-system';
 
 import { fetchAddress, insertAddress } from '../../../db/Index/Index';
 
-//import { API_MAPS_KEY } from '../../constants/DataBase';
+import { API_MAPS_KEY } from '../../../Constants/DataBase/DataBase';
 
 export const ADD_PLACE = 'ADD_PLACE';
 export const LOAD_PLACES = 'LOAD_PLACES';
 
-export const addPlace = (title, image, address) => {
+export const addPlace = (title, image, location) => {
     return async dispatch => {
+        
+        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${API_MAPS_KEY}`)
 
-        /*const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${API_MAPS_KEY}`);
-
-        if(!response.ok) throw new Error('It was not possible to connect with Google Maps API')
+        if(!response.ok) throw new Error('No se ha podido comunicar con Google Maps API')
 
         const resData = await response.json();
-        if(!resData.results) throw new Error('It was not possible to obtain de Address')
+        if(!resData.results) throw new Error('No se ha podido obtener la dirección')
 
         const address = resData.results[0].formatted_address;
-        console.log(address)*/
 
         const fileName = image.split('/').pop()
         const Path = FileSystem.documentDirectory + fileName
@@ -32,16 +31,19 @@ export const addPlace = (title, image, address) => {
             const result = await insertAddress(
                 title,
                 Path,
-                address
+                address,
+                location.lat,
+                location.lng
             )
-
+            
             dispatch({ type: ADD_PLACE, payload: { 
                 id: result.insertId,
                 title, 
                 image: Path, 
-                address
+                address,
+                lat: location.lat,
+                lng: location.lng
             }})
-
         } catch (error) {
             console.log(error.message)
             throw error

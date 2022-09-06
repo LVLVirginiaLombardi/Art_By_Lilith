@@ -9,7 +9,7 @@ const initialState = {
 export default ( state = initialState, action) => {
     switch(action.type) {
         case ADD_PLACE:
-            const newPlace = { id: action.payload.id.toString(), title: action.payload.title, image: action.payload.image, address: action.payload.address }
+            const newPlace = { id: action.payload.id.toString(), title: action.payload.title, image: action.payload.image, address: action.payload.address, lat: action.payload.lat, lng: action.payload.lng }
             return {
                 ...state,
                 places: [...state.places, newPlace]
@@ -21,7 +21,9 @@ export default ( state = initialState, action) => {
                     {   id: item.id.toString(),
                         title: item.title,
                         image: item.image,
-                        address: item.address
+                        address: item.address,
+                        lat: item.lat,
+                        lng: item.lng
                     }
                 ))
             }
