@@ -1,9 +1,11 @@
 import * as ImagePicker from 'expo-image-picker';
 
-import { Alert, Button, Image, StyleSheet, Text, View } from 'react-native';
+import { Alert, Image, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 
 import { COLORS } from '../../Constants/Colors';
+import { Ionicons } from '@expo/vector-icons';
+import OutlinedButton from '../../UI/OutlinedButton/OutlinedButton';
 
 const ImageSelector = props => {
     const [pickedUri, setPickedUri] = useState();
@@ -43,12 +45,7 @@ const ImageSelector = props => {
                     source={{ uri: pickedUri }}
                     />)}
             </View>
-            <Button 
-                style={styles.buttonPicture}
-                title='Take a picture'
-                color={COLORS.LIGTH_PINK}
-                onPress={handlerTakeImage}
-            />
+            <OutlinedButton icon={"camera"} onPress={handlerTakeImage}>Take Image</OutlinedButton>
         </View>
     )
 }
