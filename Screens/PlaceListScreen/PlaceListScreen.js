@@ -15,9 +15,9 @@ const PlaceListScreen = ({ navigation }) => {
     const renderItem = (data) => (
         <PlaceItem
             id={data.item.id}
-            title={data?.item.title}
-            image={data?.item.image}
-            address={data?.item.address}
+            title={data.item.title}
+            image={data.item.image}
+            address={data.item.address}
             onSelect={() => navigation.navigate('Detail', {
                 placeID: data.item.id
             })}
@@ -34,7 +34,7 @@ const PlaceListScreen = ({ navigation }) => {
                 <FlatList
                     data={places}
                     renderItem={renderItem}
-                    keyExtractor={(item) => Date.now()}
+                    keyExtractor={(item) => item.id}
                 />
             ) : (
                 <Text>Not Places Found</Text>

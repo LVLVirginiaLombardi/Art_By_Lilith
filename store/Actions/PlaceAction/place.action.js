@@ -15,6 +15,7 @@ export const addPlace = (title, image, location) => {
         if(!response.ok) throw new Error('No se ha podido comunicar con Google Maps API')
 
         const resData = await response.json();
+        
         if(!resData.results) throw new Error('No se ha podido obtener la dirección')
 
         const address = resData.results[0].formatted_address;
@@ -40,9 +41,11 @@ export const addPlace = (title, image, location) => {
                 id: result.insertId,
                 title, 
                 image: Path, 
-                address,
-                lat: location.lat,
-                lng: location.lng
+                address: address,
+                coords: {
+                    lat: location.lat,
+                    lng: location.lng
+                }
             }})
         } catch (error) {
             console.log(error.message)

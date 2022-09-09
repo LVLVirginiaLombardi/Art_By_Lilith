@@ -10,10 +10,14 @@ import { useDispatch } from 'react-redux';
 const NewPlaceScreen = ({ navigation, route }) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState();
     const [location, setLocation] = useState(null);
    
     const handleTitleChange = text => setTitle(text)
+
+    const handlePickImage = (uri) => {
+
+    }
 
     const handleSave = () => {
         dispatch(addPlace(title, image, location));
@@ -28,8 +32,9 @@ const NewPlaceScreen = ({ navigation, route }) => {
                     value={title}
                     onChangeText={handleTitleChange}    
                 />
-                <ImageSelector onImage={image => setImage(image)} />
-                <LocationSelector onLocation={setLocation} mapLocation={route?.params?.mapLocation} />
+                <ImageSelector onImage={handlePickImage} />
+                <LocationSelector onLocation={setLocation}/>
+               
                 <Button title='Record Address' color={COLORS.MAROON} onPress={handleSave}/>
         </ScrollView>
     )
@@ -53,3 +58,5 @@ const styles = StyleSheet.create({
 })
 
 export default NewPlaceScreen;
+
+ //onLocation={setLocation} mapLocation={route?.params?.mapLocation}

@@ -11,10 +11,22 @@ const LocationSelector = ({onLocation, mapLocation}) => {
     const [pickedLocation, setPickedLocation] = useState();
     const navigation = useNavigation();
 
+    const verifyPermissions = async () => {
+        const { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== 'granted') {
+            Alert.alert(
+                'Permisos insuficientes',
+                'Necesitas permisos para usar la localización',
+                [{ text: 'OK' }]
+            )
+            return false;
+        }
+        return true;
+    }
+
     const handleGetLocation = async () => {
         const isLocationOk = await verifyPermissions();
         if (!isLocationOk) {
-
             return
         }
 
@@ -26,24 +38,11 @@ const LocationSelector = ({onLocation, mapLocation}) => {
             lat: location.coords.latitude,
             lng: location.coords.longitude,
         });
+        
         onLocation({
             lat: location.coords.latitude,
             lng: location.coords.longitude,
         })
-    }
-
-    const verifyPermissions = async () => {
-        const { status } = await Location.requestForegroundPermissionsAsync();
-        if (status !== 'granted') {
-            Alert.alert(
-                'Permisos insuficientes',
-                'Necesitas permisos para usar la localización',
-                [{ text: 'OK' }]
-            )
-            return false;
-
-        }
-        return true
     }
 
     const handlePickOnMap = async() => {

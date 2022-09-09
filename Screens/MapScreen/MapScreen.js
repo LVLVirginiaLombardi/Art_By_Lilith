@@ -1,6 +1,7 @@
 import MapPreview, { Marker } from 'react-native-maps';
 import React, { useLayoutEffect, useState } from 'react';
 
+import { COLORS } from '../../Constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -30,7 +31,7 @@ const MapScreen = ({ navigation }) => {
         navigation.setOptions({
             headerRight: () => (
                 <TouchableOpacity onPress={() => handleSaveLocation()} hitSlop={{ top: 20, left: 20, right: 20, bottom: 20}} >
-                    <Ionicons name='md-save-outline' color='black' size={22} />
+                    <Ionicons name='md-save-outline' color={COLORS.primary} size={22} />
                 </TouchableOpacity>
         )})
     }, [navigation, handleSaveLocation])
