@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     image: {
         height: '35%',
         minHeight: 300,
-        width: '100%'
+        width: '100%',
+        borderRadius: 15
     },
     location: {
         margin: 20,
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 8,
         elevation: 5,
-        borderRadius: 10
+        borderRadius: 15
     },
     addressContainer: {
         padding: 20,
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
     map: {
         height: 200,
         width: '90%',
+        borderRadius: 15
     }
 })
 

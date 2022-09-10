@@ -11,7 +11,7 @@ export const addPlace = (title, image, location) => {
     return async dispatch => {
         
         const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${API_MAPS_KEY}`)
-
+        console.log(response)
         if(!response.ok) throw new Error('No se ha podido comunicar con Google Maps API')
 
         const resData = await response.json();
@@ -19,6 +19,7 @@ export const addPlace = (title, image, location) => {
         if(!resData.results) throw new Error('No se ha podido obtener la dirección')
 
         const address = resData.results[0].formatted_address;
+        console.log(address)
 
         const fileName = image.split('/').pop()
         const Path = FileSystem.documentDirectory + fileName
@@ -36,13 +37,13 @@ export const addPlace = (title, image, location) => {
                 location.lat,
                 location.lng
             )
-            
+            console.log(result)
             dispatch({ type: ADD_PLACE, payload: { 
                 id: result.insertId,
                 title, 
                 image: Path, 
                 address: address,
-                coords: {
+                coordinate: {
                     lat: location.lat,
                     lng: location.lng
                 }

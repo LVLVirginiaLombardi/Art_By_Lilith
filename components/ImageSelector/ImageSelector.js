@@ -4,7 +4,6 @@ import { Alert, Image, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 
 import { COLORS } from '../../Constants/Colors';
-import { Ionicons } from '@expo/vector-icons';
 import OutlinedButton from '../../UI/OutlinedButton/OutlinedButton';
 
 const ImageSelector = props => {
@@ -40,10 +39,11 @@ const ImageSelector = props => {
     return (
         <View style={styles.container}>
             <View style={styles.preview}>
-                {!pickedUri ? (<Text>No image selected</Text>) : (<Image 
+                {!pickedUri ? (<Text>No image taken...</Text>) : 
+                (<Image 
                     style={styles.image}
                     source={{ uri: pickedUri }}
-                    />)}
+                />)}
             </View>
             <OutlinedButton icon={"camera"} onPress={handlerTakeImage}>Take Image</OutlinedButton>
         </View>
@@ -62,14 +62,13 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderColor: COLORS.BLUSH,
         borderWidth: 1,
-        marginLeft: 15,
+        marginLeft: 18,
+        borderRadius: 15,
     },
     image: {
         width: '100%',
-        height: '100%'
-    },
-    buttonPicture: {
-        width: '80%',
+        height: '100%',
+        borderRadius: 15
     },
 })
 

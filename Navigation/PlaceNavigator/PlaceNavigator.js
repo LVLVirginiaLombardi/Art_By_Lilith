@@ -21,16 +21,17 @@ const PlaceNavigator = () => (
             headerTintColor: Platform.OS === 'android' ? COLORS.primary : COLORS.DARK_SIENNA,
             headerTitleStyle: {
                 fontWeight: 'normal',
+                fontFamily: 'RobotoMedium',
             }
         }}
     >
         <PlaceStack.Screen
-            name="Address"
+            name="Place"
             component={PlaceListScreen}
             options={({ navigation }) => ({
-                title: 'Address',
+                title: 'Place',
                 headerRight: () => (
-                    <TouchableOpacity onPress={() => navigation.navigate('New')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('New Place')}>
                         <Ionicons
                             name='md-add'
                             color={Platform.OS === 'android' ? COLORS.primary : COLORS.DARK_SIENNA}
@@ -41,14 +42,14 @@ const PlaceNavigator = () => (
             })} 
         />
        <PlaceStack.Screen
-            name="Detail"
+            name="Place Detail"
             component={PlaceDetailScreen}
-            options={{title: 'Address Detail'}} 
+            options={{title: 'Place Detail'}} 
         />
         <PlaceStack.Screen
-            name="New"
+            name="New Place"
             component={NewPlaceScreen}
-            options={{title: 'New Address'}} 
+            options={{title: 'New Place'}} 
         />
         <PlaceStack.Screen
             name="Map"

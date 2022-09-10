@@ -23,6 +23,7 @@ const NewPlaceScreen = ({ navigation, route }) => {
         dispatch(addPlace(title, image, location));
         navigation.navigate('Address');
     }
+    
 
     return (
         <ScrollView style={{ flex: 1}} scrollEnabled>
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     },
     input: {
         borderBottomColor: '#ccc',
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         marginBottom: 20,
         width: '90%',
         marginLeft: 13,

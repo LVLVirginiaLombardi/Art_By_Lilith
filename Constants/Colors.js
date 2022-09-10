@@ -1,5 +1,7 @@
 export const COLORS = {
     primary:'#BAD1CD', 
+    secondary: '#E3D7FF',
+    gold: '#B88C40',
     accent:'#aac0af',
     DARK_SIENNA: "#450920",
     MAROON: "#a53860",

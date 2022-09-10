@@ -8,6 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const MapScreen = ({ navigation }) => {
     const [selectedLocation, setSelectedLocation] = useState(null)
+    
     const initialRegion = {
         latitude: 37.78825,
         longitude: -122.4324,
@@ -16,7 +17,7 @@ const MapScreen = ({ navigation }) => {
     }
     const handleSaveLocation = () => {
         if(selectedLocation) {
-            navigation.navigate('New', { mapLocation: selectedLocation })
+            navigation.navigate('New Place', { mapLocation: selectedLocation })
         }
     }
     
@@ -26,12 +27,12 @@ const MapScreen = ({ navigation }) => {
             lng: event.nativeEvent.coordinate.longitude
         })
     }
-    
+    console.log(selectedLocation)
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                <TouchableOpacity onPress={() => handleSaveLocation()} hitSlop={{ top: 20, left: 20, right: 20, bottom: 20}} >
-                    <Ionicons name='md-save-outline' color={COLORS.primary} size={22} />
+                <TouchableOpacity onPress={() => handleSaveLocation(selectedLocation)} hitSlop={{ top: 20, left: 20, right: 20, bottom: 20}} >
+                    <Ionicons name='md-save-outline' color={COLORS.primary} size={24} />
                 </TouchableOpacity>
         )})
     }, [navigation, handleSaveLocation])

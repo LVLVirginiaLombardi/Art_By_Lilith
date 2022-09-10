@@ -12,8 +12,8 @@ const OutlinedButton = ({ onPress, icon, children }) => {
         >
             <Ionicons 
                 style={styles.icon} 
-                name={icon} s
-                ize={20} 
+                name={icon} 
+                size={24} 
                 color={COLORS.primary} 
             />
             <Text style={styles.text}>{children}</Text>
@@ -26,23 +26,27 @@ export default OutlinedButton;
 const styles = StyleSheet.create({
     button: {
         paddingHorizontal: 12,
-        paddingVertical: 6,
-        margin: 6,
+        paddingVertical: 10,
+        marginBottom: 10,
+        marginLeft: 18,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
         borderColor: COLORS.primary,
         borderRadius: 10,
-        backgroundColor: COLORS.MAROON
+        backgroundColor: COLORS.gold,
+        width: '90%'
     },
     pressed: {
         opacity: 0.7
     },
     icon: {
-        marginRight: 6
+        marginRight: 12
     },
     text: {
-        color: COLORS.primary
+        color: COLORS.primary,
+        fontFamily: 'RobotoMedium',
+        fontSize: 18,
     },
 });
