@@ -1,4 +1,3 @@
-import AuthNavigator from '../AuthNavigator/AuthNavigator';
 import InitialNavigator from '../InitialNavigator/InitialNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
@@ -11,15 +10,13 @@ const MainNavigation = () => {
   
   return (
       <NavigationContainer>
-        <InitialNavigator>
         { userId ? 
           <TabNavigator />
           : 
-          <AuthNavigator />
+          <InitialNavigator/>
         }
-        </InitialNavigator>
       </NavigationContainer>
-  )
+  );
 }
 
 export default MainNavigation;
