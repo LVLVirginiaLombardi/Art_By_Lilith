@@ -219,7 +219,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: COLORS.coolgray,
         marginBottom: 30,
-        marginLeft: 17
+        marginLeft: 17,
+        fontFamily: 'RobotoLight',
+        fontSize: 18
     }
 });
 
