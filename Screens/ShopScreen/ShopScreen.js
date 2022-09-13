@@ -7,11 +7,11 @@ import { addItem } from '../../store/Actions/CartAction/cart.action';
 
 const backgroundimage = require("../../assets/background.png");
 
-export const ShopScreen = ({ navigation }) => {
+export const ShopScreen = () => {
 
     const dispatch = useDispatch();
 
-    const drawing = useSelector(store => store.drawings.selected)
+    const drawing = useSelector(store => store.drawings.selected);
     
     const handlerAddItemCart = () => dispatch(addItem(drawing));
 

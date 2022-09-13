@@ -5,6 +5,7 @@ import {
     View
 } from 'react-native';
 
+import {COLORS} from '../../Constants/Colors';
 import React from 'react';
 
 const GridItem = ({ item, onSelected}) => {
@@ -25,9 +26,9 @@ const styles = StyleSheet.create({
     gridItem: {
         flex: 1,
         margin: 15,
-        height: 150,
+        height: 175,
         borderRadius: 6,
-        marginTop: '15%',
+        marginTop: '20%',
     },
     container: {
         flex: 1,
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'RobotoRegular',
         fontSize: 15,
+        color: COLORS.green
     },
 });
 

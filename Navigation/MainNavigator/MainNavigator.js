@@ -1,6 +1,7 @@
-import InitialNavigator from '../InitialNavigator/InitialNavigator';
+import FirstNavigator from '../FirstNavigator/FirstNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import ShopNavigator from '../ShopNavigator/ShopNavigator';
 import TabNavigator from '../TabNavigator/TabNavigator';
 import { useSelector } from 'react-redux';
 
@@ -11,9 +12,9 @@ const MainNavigation = () => {
   return (
       <NavigationContainer>
         { userId ? 
-          <TabNavigator />
+          <TabNavigator/>
           : 
-          <InitialNavigator/>
+          <FirstNavigator/> 
         }
       </NavigationContainer>
   );

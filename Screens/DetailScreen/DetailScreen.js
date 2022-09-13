@@ -25,9 +25,10 @@ export const DetailScreen = ({navigation, route}) => {
             drawing: item.name
         })
     };
-
+    
     const renderItemDrawing = ({ item }) => (
         <DrawingItem item={item} onSelected={handleSelected} />
+        
     );
 
     return (
@@ -38,8 +39,8 @@ export const DetailScreen = ({navigation, route}) => {
                 keyExtractor={item => item.id}
             />
         </ImageBackground>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     backgroundimage: {

@@ -12,18 +12,19 @@ const CartNavigator = () => {
             initialRouteName="Cart"
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: Platform.OS === 'android' ? COLORS.primary : '',
+                    backgroundColor: Platform.OS === 'android' ? COLORS.violet : '',
                 },
-                headerTintColor: Platform.OS === 'android' ? '#462749' : COLORS.primary,
+                headerTintColor: Platform.OS === 'android' ? COLORS.gold : '',
                 headerTitleStyle: {
-                    fontWeight: 'bold',
+                    fontFamily: 'RobotoLight',
+                    fontSize: 22
                 },
             }}
         >
             <Stack.Screen 
                 name="Cart"
                 component={CartScreen}
-                options={{ title: 'Shop Cart' }}
+                options={{ title: 'Your Shop Cart' }}
             />
         </Stack.Navigator>
     )   

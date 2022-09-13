@@ -38,6 +38,7 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 items: filteredCart,
                 total: sumTotal(filteredCart)
             };
+            
         case CONFIRM_CART:
             if(action.confirm) {
                 return {
@@ -46,6 +47,7 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                     total: 0
                 }
             }
+            
         default:
             return state
     }
