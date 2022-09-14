@@ -16,12 +16,12 @@ const PlaceNavigator = () => (
         initialRoute='Place'
         screenOptions={{
             headerStyle: {
-                backgroundColor: Platform.OS === 'android' ? COLORS.DARK_SIENNA : '',
+                backgroundColor: Platform.OS === 'android' ? COLORS.violet : '',
             },
-            headerTintColor: Platform.OS === 'android' ? COLORS.primary : COLORS.DARK_SIENNA,
+            headerTintColor: Platform.OS === 'android' ? COLORS.gold : '',
             headerTitleStyle: {
-                fontWeight: 'normal',
-                fontFamily: 'RobotoMedium',
+                fontSize: 24,
+                fontFamily: 'RobotoLight'
             }
         }}
     >
@@ -29,9 +29,9 @@ const PlaceNavigator = () => (
             name="Place"
             component={PlaceListScreen}
             options={({ navigation }) => ({
-                title: 'Place',
+                title: 'Pics Of Your Drawings',
                 headerRight: () => (
-                    <TouchableOpacity onPress={() => navigation.navigate('New Place')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('New Pic')}>
                         <Ionicons
                             name='md-add'
                             color={Platform.OS === 'android' ? COLORS.primary : COLORS.DARK_SIENNA}
@@ -47,9 +47,9 @@ const PlaceNavigator = () => (
             options={{title: 'Place Detail'}} 
         />
         <PlaceStack.Screen
-            name="New Place"
+            name="New Pic"
             component={NewPlaceScreen}
-            options={{title: 'New Place'}} 
+            options={{title: 'New Pic'}} 
         />
         <PlaceStack.Screen
             name="Map"
@@ -57,6 +57,6 @@ const PlaceNavigator = () => (
             options={{title: 'Map'}} 
         />
     </PlaceStack.Navigator>
-)
+);
 
 export default PlaceNavigator;

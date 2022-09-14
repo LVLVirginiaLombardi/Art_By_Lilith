@@ -1,62 +1,23 @@
-import { Alert, Button, ImageBackground, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, ImageBackground, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from "react-native";
 import { login, signup } from '../../store/Actions/AuthAction/auth.action';
-import { useCallback, useReducer, useState } from 'react';
 
 import { COLORS } from '../../Constants/Colors';
 import OutlinedButton from "../../UI/OutlinedButton/OutlinedButton";
 import { useDispatch } from 'react-redux';
-
-const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
+import { useState } from 'react';
 
 const backgroundImage = require('../../assets/Drawings/BlackForest.jpeg');
  
-export const formReducer = (state, action) => {
-    if(action.type === FORM_INPUT_UPDATE) {
-        const inputValues = {
-            ...state.inputValues,
-            [action.input]: action.value
-        }
-        const inputValidities = {
-            ...state.inputValidities,
-            [action.input]: action.isValid
-        }
-        let formIsValid = true;
-
-        for (const key in inputValidities) {
-            formIsValid = formIsValid && inputValidities[key];
-        }
-
-        return {
-            formIsValid,
-            inputValues,
-            inputValidities
-        }
-    }
-    return state
-}
-
 const AuthScreen = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
     const dispatch = useDispatch();
-    const [formState, formDispatch] = useReducer(formReducer, {
-        inputValues: {
-            email: '',
-            password: ''
-        },
-        inputValidities: {
-            email: false,
-            password: false
-        },
-        formIsValid: false
-    });
 
     const title = 'CREATE ACCOUNT',
         message = 'Have an Account?',
-        messageAction = 'Sign In',
-        messageTarget = 'Login';
+        messageAction = 'Sign In'
 
     const handleSignUp = () => {
         dispatch(signup(email, password));
@@ -72,31 +33,12 @@ const AuthScreen = () => {
         dispatch(login(email, password));
         if(email !== '' && password !== '') {
             Alert.alert(
-                'LogIn Successfully',
+                'Log In Successfully',
                 'Now enjoy the APP',
                 [{ text: 'OK' }]
             )
         }
     }
-    /*const handleSignUp = () => {
-        if(formState.formIsValid) {
-            dispatch(signup(formState.inputValues.email, formState.inputValues.password));
-        } else {
-            Alert.alert(
-                'Invalid Form',
-                'Entry a valid email or password',
-                [{ text: 'OK' }]
-            )
-        }
-    }*/
-    const onInputChangeHandler = useCallback((inputIdentifier, inputValue, inputValidity) => {
-        formDispatch({
-            type: FORM_INPUT_UPDATE,
-            value: inputValue,
-            isValid: inputValidity,
-            input: inputIdentifier
-        })
-    }, [formDispatch])
 
     return (
         <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
@@ -175,7 +117,7 @@ const styles = StyleSheet.create({
     },
     container: {
         width: '90%',
-        height: '60%',
+        height: '65%',
         padding: 12,
         borderColor: COLORS.coolgray,
         borderWidth: 1.5,
@@ -203,7 +145,7 @@ const styles = StyleSheet.create({
         marginLeft: '40%',
     },
     buttonRegister: {
-        marginTop: 50,
+        marginTop: 40,
         fontSize: 16,
         fontFamily: 'RobotoMedium',
         color: '#511548'

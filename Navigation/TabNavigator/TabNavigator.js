@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import CartNavigator from '../CartNavigator/CartNavigator';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import OrdersNavigator from '../OrdersNavigator/OrdersNavigator';
+import PlaceNavigator from '../PlaceNavigator/PlaceNavigator';
 import React from 'react';
 import ShopNavigator from '../ShopNavigator/ShopNavigator';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -17,12 +18,12 @@ const TabNavigator = () => {
         tabBarStyle: styles.tabBar
     }}>
         <BottomsTabs.Screen 
-            name="Shop" 
+            name="ShopTab" 
             component={ShopNavigator}
             options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={styles.item}>
-                        <Ionicons name='md-home' size={20} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Ionicons name='md-home' size={22} color={focused ? '#462749' : '#F2D1C9'} />
                         <Text style={{ color: focused ? '#462749' : '#F2D1C9' }}>Shop</Text>
                     </View>
                 )
@@ -34,7 +35,7 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
-                        <Ionicons name='md-cart' size={20} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Ionicons name='md-cart' size={22} color={focused ? '#462749' : '#F2D1C9'} />
                         <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Cart</Text>
                     </View>
                 )
@@ -46,8 +47,20 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
-                        <Ionicons name='cash-outline' size={20} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Ionicons name='basket' size={22} color={focused ? '#462749' : '#F2D1C9'} />
                         <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Orders</Text>
+                    </View>
+                )
+            }}
+        />
+        <BottomsTabs.Screen
+            name="PlaceTab"
+            component={PlaceNavigator}
+            options={{
+                tabBarIcon: ({focused}) => (
+                    <View style={styles.item}>
+                        <Ionicons name='camera' size={22} color={focused ? '#462749' : '#F2D1C9'} />
+                        <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Pic</Text>
                     </View>
                 )
             }}

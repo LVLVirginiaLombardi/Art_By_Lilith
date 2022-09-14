@@ -24,20 +24,20 @@ const ShopNavigator = () => {
             }}  
         > 
             <Stack.Screen
-                name="Home"
+                name='Home'
                 component={HomeScreen}
                 options={{ 
                     title: 'Home -> Categories Drawings'
                 }}
             />
             <Stack.Screen
-                name="Detail"
+                name='Detail'
                 component={DetailScreen}
                 options=
                 {({route}) => ({title: route.params.name})}
             />  
             <Stack.Screen 
-                name="Shop"
+                name='Shop'
                 component={ShopScreen} 
                 options=
                 {({route}) => ({ title: route.params.drawing})}

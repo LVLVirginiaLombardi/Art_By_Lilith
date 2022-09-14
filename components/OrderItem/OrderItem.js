@@ -7,7 +7,7 @@ import React from 'react'
 const formatDay = (time) => {
     const date = new Date(time);
     return date.toLocaleDateString();
-}
+};
 
 const OrderItem = ({ item, onDelete}) => {
   return (
@@ -23,7 +23,7 @@ const OrderItem = ({ item, onDelete}) => {
       </View>
     </View>
   )
-}
+};
 
 const styles = StyleSheet.create({
     order: {
@@ -32,17 +32,27 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         margin: 10,
-        borderColor: '#ccc',
+        borderColor: COLORS.primary,
         borderWidth: 1,
-        borderRadius: 6,
+        borderRadius: 10,
+        backgroundColor: COLORS.charcoal,
+        marginTop: 20
+    },
+    name: {
+      color: COLORS.primary,
+      fontFamily: 'RobotoRegular',
+      fontSize: 18
     },
     date: {
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: 'RobotoRegular',
+        color: COLORS.primary
     },
     total: {
         fontSize: 18,
-        fontFamily: 'RobotoBlack'
+        fontFamily: 'RobotoMedium',
+        color: COLORS.coolgray
     }
-})
+});
 
 export default OrderItem;
