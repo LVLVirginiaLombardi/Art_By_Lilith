@@ -29,13 +29,22 @@ const PlaceNavigator = () => (
             name="Place"
             component={PlaceListScreen}
             options={({ navigation }) => ({
-                title: 'Pics Of Your Drawings',
+                title: 'Your Drawing´s Pics',
                 headerRight: () => (
                     <TouchableOpacity onPress={() => navigation.navigate('New Pic')}>
                         <Ionicons
                             name='md-add'
-                            color={Platform.OS === 'android' ? COLORS.primary : COLORS.DARK_SIENNA}
-                            size={24}
+                            color={Platform.OS === 'android' ? COLORS.gold : COLORS.DARK_SIENNA}
+                            size={30}
+                        />
+                    </TouchableOpacity>
+                ),
+                headerLeft: () => (
+                    <TouchableOpacity disabled={true}>
+                        <Ionicons
+                            name='color-palette'
+                            color={Platform.OS === 'android' ? COLORS.gold : COLORS.DARK_SIENNA}
+                            size={28}
                         />
                     </TouchableOpacity>
                 )

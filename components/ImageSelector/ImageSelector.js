@@ -39,13 +39,13 @@ const ImageSelector = props => {
     return (
         <View style={styles.container}>
             <View style={styles.preview}>
-                {!pickedUri ? (<Text>No image taken...</Text>) : 
+                {!pickedUri ? (<Text style={styles.text}>No Image Taken Yet...</Text>) : 
                 (<Image 
                     style={styles.image}
                     source={{ uri: pickedUri }}
                 />)}
             </View>
-            <OutlinedButton icon={"camera"} onPress={handlerTakeImage}>Take Image</OutlinedButton>
+            <OutlinedButton icon={"camera"} onPress={handlerTakeImage}>Take Your Image</OutlinedButton>
         </View>
     )
 }
@@ -64,6 +64,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginLeft: 18,
         borderRadius: 15,
+    },
+    text: {
+        
     },
     image: {
         width: '100%',

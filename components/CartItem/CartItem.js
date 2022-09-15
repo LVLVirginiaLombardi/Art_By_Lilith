@@ -8,15 +8,15 @@ export const CartItem = ({ item, onDelete}) => {
   return (
     <View style={styles.item}>
       <View>
-        <Text style={styles.header}>{item.name}</Text>
+        <Text style={styles.header}>Drawing Name: {item.name}</Text>
       </View>
       <View style={styles.detail}>
         <View>
-            <Text>Quantity: {item.quantity}</Text>
-            <Text>${item.price}</Text>
+            <Text style={styles.text}>Quantity: {item.quantity}</Text>
+            <Text style={styles.text}>Price: ${item.price}</Text>
         </View>
         <TouchableOpacity onPress={() => onDelete(item.id)}>
-            <Ionicons name='trash' color={COLORS.accent} />
+            <Ionicons name='trash' color={COLORS.primary} size={24}/>
         </TouchableOpacity>
       </View>
     </View>
@@ -27,12 +27,15 @@ const styles = StyleSheet.create({
     item: {
         flex: 1,
         padding: 8,
+        marginTop: 10,
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        borderBottomColor: COLORS.platinum
     },
     header: {
         fontSize: 18,
         fontFamily: 'RobotoBlack',
+        color: COLORS.greenlight,
+        marginBottom: 10
     },
     detail: {
         flex: 1,
@@ -40,9 +43,11 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'space-between',
+        marginBottom: 10
     },
     text: {
-        fontSize: 16,
-        fontFamily: 'RobotoLight',
+      color: COLORS.greenlight,
+      fontFamily: 'RobotoMedium',
+      fontSize: 16
     },
 });

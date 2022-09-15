@@ -1,17 +1,16 @@
-import { Button, ScrollView, StyleSheet, Text, TextInput } from 'react-native';
 import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, TextInput } from 'react-native';
 
 import { COLORS } from '../../Constants/Colors';
 import ImageSelector from '../../components/ImageSelector/ImageSelector';
-import LocationSelector from '../../components/LocationSelector/LocationSelector';
+import OutlinedButton from '../../UI/OutlinedButton/OutlinedButton';
 import { addPlace } from '../../store/Actions/PlaceAction/place.action';
 import { useDispatch } from 'react-redux';
 
-const NewPlaceScreen = ({ navigation, route }) => {
+const NewPlaceScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [image, setImage] = useState();
-    const [location, setLocation] = useState(null);
    
     const handleTitleChange = text => setTitle(text)
 
@@ -20,23 +19,25 @@ const NewPlaceScreen = ({ navigation, route }) => {
     }
 
     const handleSave = () => {
-        dispatch(addPlace(title, image, location));
-        navigation.navigate('Address');
+        dispatch(addPlace(title, image));
     }
     
 
     return (
         <ScrollView style={{ flex: 1}} scrollEnabled>
-                <Text style={styles.label}>TITLE</Text>
+                <Text style={styles.label}>YOUR DRAWING PIC TITLE:</Text>
                 <TextInput 
                     style={styles.input}
                     value={title}
                     onChangeText={handleTitleChange}    
                 />
                 <ImageSelector onImage={handlePickImage} />
-                <LocationSelector onLocation={setLocation}/>
-               
-                <Button title='Record Address' color={COLORS.MAROON} onPress={handleSave}/>
+                <OutlinedButton 
+                    icon={'save'} 
+                    onPress={handleSave}
+                >
+                    Record Your Pic 
+                </OutlinedButton>
         </ScrollView>
     )
 }
@@ -44,7 +45,7 @@ const NewPlaceScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
     label: {
         fontSize: 16,
-        fontFamily: 'RobotoMedium',
+        fontFamily: 'RobotoRegular',
         marginBottom: 10,
         marginLeft: 30,
         marginTop: 30,
@@ -59,5 +60,3 @@ const styles = StyleSheet.create({
 })
 
 export default NewPlaceScreen;
-
- //onLocation={setLocation} mapLocation={route?.params?.mapLocation}

@@ -10,6 +10,7 @@ export const COLORS = {
     charcoal: '#40434E',
     blue: '#4F6D7A',
     green: '#CAFFB9',
+    greenlight: '#C1FFF2',
     accent:'#aac0af',
     DARK_SIENNA: "#450920",
     MAROON: "#a53860",

@@ -19,7 +19,7 @@ export const ShopScreen = () => {
     return (
         <ImageBackground source={backgroundimage} style={styles.backgroundimage}>
             <View style={styles.screen}>
-                <Text style={styles.title}>{drawing.name}</Text>
+                <Text style={styles.title}>Drawing: {drawing.name}</Text>
                 <View style={styles.container}>
                     <Image style={styles.image} source={drawing.image}/>
                     <View style={styles.info}>
@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 25,
         fontFamily: 'RobotoBold',
-        marginTop: 30
+        marginTop: 30,
+        color: COLORS.platinum
     },
     image: {
         width: 220,
