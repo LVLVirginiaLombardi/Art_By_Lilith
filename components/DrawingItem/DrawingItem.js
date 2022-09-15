@@ -1,5 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import { COLORS } from '../../Constants/Colors';
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 
 const DrawingItem = ({ item, onSelected }) => {
@@ -10,8 +12,8 @@ const DrawingItem = ({ item, onSelected }) => {
                     <Text style={styles.title}>{item.name}</Text>
                 </View>
                 <View>
-                    <Text style={styles.details}>{item.price}</Text>
-                    <Text style={styles.details}>{item.format}</Text>
+                    <Text style={styles.details}>Price: ${item.price}</Text>
+                    <Text style={styles.details}>Format: {item.format}</Text>
                 </View>
             </View>
         </TouchableOpacity>
@@ -22,19 +24,25 @@ const styles = StyleSheet.create({
     drawingItem: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
-        margin: 30,
-        borderRadius: 6,
-        backgroundColor: '#F2D1C9',
+        marginTop: 40,
+        width: '80%',
+        marginLeft: 40,
+        borderRadius: 10,
+        padding: 6,
+        backgroundColor: COLORS.primary,
+        borderColor: COLORS.blue,
+        borderWidth: 1.5
     },
     title: {
         fontFamily: 'RobotoMedium',
         fontSize: 25,
+        color: COLORS.violet
     },
     details: {
         fontSize: 18,
         fontFamily: 'RobotoRegular',
+        color: COLORS.blue
     }
-})
+});
 
 export default DrawingItem;

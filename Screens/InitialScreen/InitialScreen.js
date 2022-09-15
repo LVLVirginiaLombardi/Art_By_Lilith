@@ -39,22 +39,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 40
     },
-    textContainer: {
-        
-    },
     logoText: {
         marginBottom: 30,
         fontSize: 35,
         fontFamily: 'RobotoLight',
         color: COLORS.primary
-
     },
     logoImage: {
         width: '100%',
         height: '50%',
         marginBottom: 20,
         marginTop: 50
-    },
+    }
 })
 
 export default InitialScreen;

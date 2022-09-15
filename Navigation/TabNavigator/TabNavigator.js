@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import { COLORS } from '../../Constants/Colors';
 import CartNavigator from '../CartNavigator/CartNavigator';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import OrdersNavigator from '../OrdersNavigator/OrdersNavigator';
@@ -23,8 +24,8 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={styles.item}>
-                        <Ionicons name='md-home' size={22} color={focused ? '#462749' : '#F2D1C9'} />
-                        <Text style={{ color: focused ? '#462749' : '#F2D1C9' }}>Shop</Text>
+                        <Ionicons name='md-home' size={22} color={focused ? COLORS.blue : COLORS.ashgray} />
+                        <Text style={{ color: focused ? COLORS.blue : COLORS.ashgray }}>Home</Text>
                     </View>
                 )
             }}
@@ -35,8 +36,8 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
-                        <Ionicons name='md-cart' size={22} color={focused ? '#462749' : '#F2D1C9'} />
-                        <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Cart</Text>
+                        <Ionicons name='md-cart' size={22} color={focused ? COLORS.blue : COLORS.ashgray} />
+                        <Text style={{ color: focused ? COLORS.blue : COLORS.ashgray}}>Cart</Text>
                     </View>
                 )
             }}
@@ -47,8 +48,8 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
-                        <Ionicons name='basket' size={22} color={focused ? '#462749' : '#F2D1C9'} />
-                        <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Orders</Text>
+                        <Ionicons name='basket' size={22} color={focused ? COLORS.blue : COLORS.ashgray} />
+                        <Text style={{ color: focused ? COLORS.blue : COLORS.ashgray}}>Orders</Text>
                     </View>
                 )
             }}
@@ -59,8 +60,8 @@ const TabNavigator = () => {
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
-                        <Ionicons name='camera' size={22} color={focused ? '#462749' : '#F2D1C9'} />
-                        <Text style={{ color: focused ? '#462749' : '#F2D1C9'}}>Pic</Text>
+                        <Ionicons name='camera' size={22} color={focused ? COLORS.blue : COLORS.ashgray} />
+                        <Text style={{ color: focused ? COLORS.blue : COLORS.ashgray}}>Pic</Text>
                     </View>
                 )
             }}

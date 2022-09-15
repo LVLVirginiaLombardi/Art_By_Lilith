@@ -10,6 +10,7 @@ const formatDay = (time) => {
 };
 
 const OrderItem = ({ item, onDelete}) => {
+  
   return (
     <View style={styles.order}>
       <View>

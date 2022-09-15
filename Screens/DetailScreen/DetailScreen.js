@@ -7,7 +7,7 @@ import DrawingItem from '../../components/DrawingItem/DrawingItem';
 
 const backgroundimage = require("../../assets/background.png");
 
-export const DetailScreen = ({navigation, route}) => {
+export const DetailScreen = ({navigation}) => {
 
     const dispatch = useDispatch();
     
